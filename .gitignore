@@ -1,0 +1,11 @@
+/.montazh/
+/out/
+/.work/
+/На монтаж/
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+tests/media/
+Thumbs.db
+.DS_Store
