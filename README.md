@@ -48,6 +48,12 @@ sudo apt install ffmpeg && pip install numpy
 python -m montazh doctor
 ```
 
+В Windows можно без `python -m`: в папке скилла лежит `montazh.cmd`.
+
+```powershell
+C:\Users\<имя>\.dsh\skills\montazh\montazh.cmd doctor
+```
+
 ## Быстрый старт
 
 ```bash
@@ -128,19 +134,21 @@ python -m unittest discover -s tests -v
 ## Структура
 
 ```
-SKILL.md              # инструкция скилла
+SKILL.md               # инструкция скилла
+montazh.cmd            # запуск в Windows одной командой
+scripts/check_skill.py # проверка, что SKILL.md читается загрузчиком
 montazh/
-  cli.py              # команды: doctor / auto / analyze / preview
-  env.py              # поиск ffmpeg, запуск команд
-  media.py            # ffprobe, сбор материалов из папки
-  audio.py            # onset-поток, темп, биты, доли, секции
-  shots.py            # детект склеек и метрики планов
-  plan.py             # EDL: слоты по битам, выбор шотов, переходы
-  render.py           # сегменты, сборка, звук, проверки
+  cli.py               # команды: doctor / auto / analyze / preview / variants
+  env.py               # поиск ffmpeg, запуск команд
+  media.py             # ffprobe, сбор материалов из папки
+  audio.py             # onset-поток, темп, биты, доли, секции
+  shots.py             # детект склеек и метрики планов
+  plan.py              # EDL: слоты по битам, выбор шотов, переходы
+  render.py            # сегменты, сборка, звук, проверки
 references/
-  rhythm.md           # правила ритма и типичные ошибки
-  ffmpeg-recipes.md   # ручные рецепты на все случаи
-  troubleshooting.md  # что делать, когда сломалось
+  rhythm.md            # правила ритма и типичные ошибки
+  ffmpeg-recipes.md    # ручные рецепты на все случаи
+  troubleshooting.md   # что делать, когда сломалось
 tests/test_pipeline.py
 ```
 
